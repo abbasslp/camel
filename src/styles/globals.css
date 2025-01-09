@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'vazir';
+  src: url('/fonts/HAKAZA.woff2') format('woff2'),
+       url('/fonts/HAKAZA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'vazir', sans-serif;
+  background-color: #d7c3a3; /* رنگ پس‌زمینه */
+  color: #5a3b24; /* رنگ متن */
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+.bg-green-100 {
+  background-color: #d4edda;
+}
+
+.text-green-600 {
+  color: #5a3b24;
+}
+
+.text-green-500 {
+  color: #5a3b24;
+}
+
+button {
+  background-color: transparent;
+  color: #5a3b24;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f2e4d5; /* رنگ روشن‌تر هنگام هاور */
+}
+/* مخفی کردن اسکرول‌بار */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* اینترنت اکسپلورر */
+  scrollbar-width: none; /* فایرفاکس */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* کروم و سایر مرورگرها */
+}
+html {
+  scroll-behavior: smooth;
+}
