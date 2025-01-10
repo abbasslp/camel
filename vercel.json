@@ -1,29 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "next.config.js",
-        "use": "@vercel/next"
-      }
-    ],
     "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/images/(.*)",
-        "headers": {
-          "Cache-Control": "max-age=31536000, immutable"
-        }
-      }
-    ],
-    "outputDirectory": "out",
-    "images": {
-      "domains": ["camelcafe.ir"],
-      "unoptimized": true
-    }
+      { "source": "/(.*)", "destination": "/" }
+    ]
   }
-  
