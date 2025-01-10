@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import MapComponent from "@/components/MapComponent";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { motion } from "framer-motion";
 
 // تعریف نوع دسته‌بندی‌ها
