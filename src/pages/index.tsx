@@ -17,16 +17,17 @@ type CategoryKey =
 
 // تعریف دسته‌بندی‌ها
 const categories = [
-  { id: "demi-box", name: "باکس دمی", icon: "☕" },
-  { id: "coffee", name: "قهوه", icon: "☕" },
-  { id: "cold-brew", name: "سرد دم", icon: "❄️" },
-  { id: "mocktail", name: "ماکتیل", icon: "🍹" },
-  { id: "hot-drinks", name: "گرم نوش", icon: "🔥" },
-  { id: "smoothie", name: "اسموتی", icon: "🥤" },
-  { id: "shake", name: "شیک", icon: "🍧" },
-  { id: "breakfast", name: "صبحانه", icon: "🍳" },
-  { id: "lunch-snack", name: "ناهار و عصرانه", icon: "🍴" },
+  { id: "demi-box", name: "باکس دمی", icon: "/icons/demi-box.png" },
+  { id: "coffee", name: "قهوه", icon: "/icons/coffee.png" },
+  { id: "cold-brew", name: "سرد دم", icon: "/icons/cold-brew.png" },
+  { id: "mocktail", name: "ماکتیل", icon: "/icons/mocktail.png" },
+  { id: "hot-drinks", name: "گرم نوش", icon: "/icons/hot-drinks.png" },
+  { id: "smoothie", name: "اسموتی", icon: "/icons/smoothie.png" },
+  { id: "shake", name: "شیک", icon: "/icons/shake.png" },
+  { id: "breakfast", name: "صبحانه", icon: "/icons/breakfast.png" },
+  { id: "lunch-snack", name: "ناهار و عصرانه", icon: "/icons/lunch-snack.png" },
 ];
+
 
 // تعریف آیتم‌های هر دسته‌بندی
 const items: Record<
@@ -39,17 +40,9 @@ const items: Record<
     { id: 3, name: "آیس دمی با شیر", price: 102000 },
   ],
   coffee: [
-    { id: 4, name: "اسپرسو", price: 62000 },
-    { id: 5, name: "اسپرسو دبل", price: 76000 },
-    { id: 6, name: "اسپرسو تریپل", price: 80000 },
-    { id: 7, name: "اسپرسو کوارترو", price: 107000 },
-    { id: 8, name: "آمریکانو", price: 69000 },
-    { id: 9, name: "آمریکانو دبل", price: 82000 },
-    { id: 10, name: "آمریکانو تریپل", price: 87000 },
-    { id: 11, name: "آمریکانو کوارترو", price: 109000 },
-    { id: 12, name: "لاته", price: 109000 },
-    { id: 13, name: "لاته دبل", price: 119000 },
-    { id: 14, name: "لاته تریپل", price: 128000 },
+    { id: 4, name: "اسپرسو", price: 80000 },
+    { id: 8, name: "آمریکانو", price: 87000 },
+    { id: 12, name: "لاته", price: 119000 },
   ],
   "cold-brew": [
     { id: 15, name: "کلاسیک", price: 115000 },
@@ -63,7 +56,6 @@ const items: Record<
     { id: 21, name: "دریا", price: 107000 },
     { id: 22, name: "انبا", price: 137000 },
     { id: 23, name: "سینامون گرپس", price: 115000 },
-    { id: 24, name: "پرتغال تروش", price: 135000 },
     { id: 25, name: "لیموناد", price: 87000 },
     { id: 26, name: "موهیتو", price: 97000 },
     { id: 27, name: "ویمتو", price: 78000 },
@@ -191,27 +183,36 @@ export default function Home() {
     transition: "transform 0.3s ease-in-out",
   }}
 >
-  <div className="flex overflow-x-auto gap-4 scrollbar-hide justify-start md:justify-center">
-    {categories.map((category) => (
-      <button
-        key={category.id}
-        ref={setCategoryButtonRef(category.id)}
-        onClick={() =>
-          sectionsRefs.current[category.id]?.scrollIntoView({ behavior: "smooth" })
-        }
-        className={`flex flex-col items-center justify-center p-2 rounded-lg ${
-          activeCategory === category.id
-            ? "bg-[#5a3b24] text-white"
-            : "bg-transparent text-[#5a3b24]"
-        } hover:bg-[#5a3b24] hover:text-white transition duration-300`}
-      >
-        <span className="text-2xl leading-none">{category.icon}</span>
-        <span className="text-sm font-bold mt-1 leading-none whitespace-nowrap">
-          {category.name}
-        </span>
-      </button>
-    ))}
-  </div>
+<div className="flex overflow-x-auto gap-4 scrollbar-hide justify-start md:justify-center">
+  {categories.map((category) => (
+    <button
+      key={category.id}
+      ref={setCategoryButtonRef(category.id)}
+      onClick={() =>
+        sectionsRefs.current[category.id]?.scrollIntoView({ behavior: "smooth" })
+      }
+      className={`flex flex-col items-center justify-center p-2 rounded-lg ${
+        activeCategory === category.id
+          ? "bg-[#5a3b24] text-white"
+          : "bg-transparent text-[#5a3b24]"
+      } hover:bg-[#5a3b24] hover:text-white transition duration-300`}
+    >
+      {/* آیکون دسته‌بندی */}
+      <div className="relative w-8 h-8">
+        <Image
+          src={category.icon}
+          alt={category.name}
+          layout="fill"
+          objectFit="contain"
+          className="rounded-full"
+        />
+      </div>
+      <span className="text-sm font-bold mt-1 leading-none whitespace-nowrap">
+        {category.name}
+      </span>
+    </button>
+  ))}
+</div>
 </div>
 
 
